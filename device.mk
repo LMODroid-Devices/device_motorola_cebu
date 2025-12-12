@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2022-2024 The LineageOS Project
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -41,9 +41,15 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lmodroid
+PRODUCT_PACKAGES += \
+    FrameworksResDevice \
+    FrameworksResDeviceXT2091-7 \
+    FrameworksResDeviceXT2091-8 \
+    LineagePlatformDevice \
+    SystemUIResDevice \
+    WifiResDevice \
+    WifiResDeviceXT2091-7 \
+    WifiResDeviceXT2091-8 \
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -62,6 +68,11 @@ $(foreach DEVICE_SKU, $(DEVICE_NFC_SKUS), \
     $(LOCAL_PATH)/permissions/unavail.android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.uicc.xml \
     $(LOCAL_PATH)/permissions/unavail.android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.xml \
     $(LOCAL_PATH)/permissions/unavail.com.nxp.mifare.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/com.nxp.mifare.xml)
+
+# Properties
+PRODUCT_PACKAGES += \
+    hardware.sku.XT2091-7.prop \
+    hardware.sku.XT2091-8.prop
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL := 29
